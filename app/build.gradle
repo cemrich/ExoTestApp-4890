@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+	buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        applicationId "de.christinecoenen.exotestapp"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+
+    buildTypes {
+		debug {
+			shrinkResources false
+			minifyEnabled true
+			useProguard false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+			signingConfig signingConfigs.debug
+		}
+		release {
+			shrinkResources true
+			minifyEnabled true
+			useProguard true
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+	implementation 'androidx.appcompat:appcompat:1.0.0'
+
+	// exo player
+	implementation 'com.google.android.exoplayer:exoplayer-ui:2.9.0'
+	implementation 'com.google.android.exoplayer:exoplayer-ui:2.9.0'
+}
